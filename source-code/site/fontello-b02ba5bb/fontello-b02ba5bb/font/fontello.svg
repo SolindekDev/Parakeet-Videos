@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2021 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="twitter-bird" unicode="&#xf303;" d="M715 659l169 0 0-21-133-85c12-80-53-116-53-116s50-138-49-253c-115-133-240-85-260-78-20 5-19-9-19-9 24-96 0-130-52-135-58-5-48 87-48 87-99-87-131-38-124-6 13 49 75 108 75 108-181 0-221 135-221 135s88-23 148-10c62 12 126 60 148 158 20 89 117 125 117 125 0 137 111 179 176 179 106 0 126-79 126-79z m-157-53c0-28 22-50 50-50s50 22 50 50-23 50-50 50-50-23-50-50z" horiz-adv-x="884" />
+</font>
+</defs>
+</svg>

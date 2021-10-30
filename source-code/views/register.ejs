@@ -1,0 +1,16 @@
+<form action="" method="post">
+    <% if (message) { %>
+        <br>
+        <span><%= message %></span>
+        <br> <br>
+    <% } %>
+    Email <br>
+    <input type="email" name="email" placeholder="example@example.com" id="email" autocomplete="off"><br><br>
+    Username <br>
+    <input type="text" name="username" placeholder="Solindek" id="username" autocomplete="off"><br><br>
+    Password <br>
+    <input type="password" name="password" placeholder="thepassword123" id="password" autocomplete="off"><br><br>
+    Repassword <br>
+    <input type="password" name="repassword" placeholder="thepassword123" id="repassword" autocomplete="off"><br><br>
+    <input type="submit" value="Register">
+</form>

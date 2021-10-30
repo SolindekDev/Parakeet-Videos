@@ -1,0 +1,20 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id="result">
+
+        </div>
+        <script>
+            fetchURL()
+
+            async function fetchURL() {
+                const response = await fetch('https://foodish-api.herokuapp.com/api/')
+                
+                console.log(response.json())
+                document.getElementById('result').innerHTML = response.json()
+            }
+        </script>
+    </body>
+</html>

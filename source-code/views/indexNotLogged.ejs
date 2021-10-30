@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parakeet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            overflow-x: hidden;
+            overflow-y: hidden;
+            background-color: #2d3142;
+            color: white;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            background-color: #242736 !important;
+        }
+        
+        .navLinks {
+            list-style: none;
+            background-color: #242736 !important;
+        }
+        
+        .navLinks li {
+            display: inline-block;
+            padding: 0px 10px;
+            padding-bottom: 10px;
+            background-color: #242736 !important;
+        }
+        
+        .navLinks li a {
+            color: white;
+            text-decoration: none !important;
+            background-color: #242736 !important;
+        }
+        
+        header #logo .logo {
+            font-size: 20px;
+            font-weight: 800;
+            background-color: #242736 !important;
+            cursor: pointer;
+        }
+        
+        header #logo .logo a {
+            background-color: #242736 !important;
+            cursor: pointer;
+        }
+        
+        #logo {
+            background-color: #242736 !important;
+        }
+        
+        nav {
+            background-color: #242736 !important;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            width: 350px;
+        }
+        
+        .user img {
+            width: 43px;
+            border-radius: 50%;
+            background-color: #242736 !important;
+            transition: all 0.2s;
+        }
+        
+        .user .over {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            position: absolute;
+            background-color: #000000 !important;
+            opacity: 0;
+            transition: all 0.2s;
+        }
+        
+        .user .over:hover {
+            opacity: 10%;
+        }
+        
+        .user {
+            background-color: #242736 !important;
+        }
+        
+        .user .dropdown {
+            position: relative;
+            display: inline-block;
+            background-color: #242736 !important;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            right: 8px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.26);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            background-color: #2d3142 !important;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #2a2d3d !important;
+        }
+        
+        .dropdown-content .lo {
+            border-bottom: #252735 3px solid;
+        }
+        
+        .dropdown-content .ly {
+            border-bottom: #252735 3px solid;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .div h1 {
+            font-weight: 800 !important;
+        }
+        
+        .div {
+            text-align: center !important;
+            align-items: center !important;
+            width: 100% !important;
+        }
+        
+        .mobile {
+            display: none;
+        }
+        
+        .userMobile {
+            display: none;
+        }
+        
+        .userMobile img {
+            width: 43px;
+            border-radius: 50%;
+            background-color: #242736 !important;
+            transition: all 0.2s;
+        }
+        
+        .userMobile .over {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            position: absolute;
+            background-color: #000000 !important;
+            opacity: 0;
+            transition: all 0.2s;
+        }
+        
+        .userMobile .over:hover {
+            opacity: 10%;
+        }
+        
+        .userMobile {
+            background-color: #242736 !important;
+        }
+        
+        .userMobile .dropdown {
+            position: relative;
+            display: inline-block;
+            background-color: #242736 !important;
+        }
+        /* 654 */
+        
+        @media only screen and (min-width: 654px) {
+            .navMobile {
+                width: 0% !important;
+                display: none;
+            }
+            .allMobile {
+                display: none;
+            }
+        }
+        
+        @media only screen and (max-width: 654px) {
+            .mobile {
+                display: block;
+                background-color: #242736 !important;
+            }
+            .mobile svg {
+                background-color: #242736 !important;
+            }
+            header {
+                min-height: 70px;
+            }
+            .user {
+                display: none;
+            }
+            nav {
+                display: none;
+            }
+            .navMobile {
+                display: none;
+            }
+        }
+        
+        .navMobile {
+            position: absolute;
+            background-color: #242736 !important;
+            height: 100%;
+            transition: all 0.2s ease-in-out;
+            width: 0%;
+        }
+        
+        .closeNav {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background-color: #242736 !important;
+        }
+        
+        .closeNav svg {
+            background-color: #242736 !important;
+            cursor: pointer;
+        }
+        
+        .allMobile {
+            text-align: center;
+            background-color: #242736 !important;
+        }
+        
+        .allMobile .ul {
+            list-style: none;
+            background-color: #242736 !important;
+            margin-top: 100px;
+        }
+        
+        .allMobile .ul2 {
+            list-style: none;
+            background-color: #242736 !important;
+            margin-top: 20px;
+        }
+        
+        .allMobile ul li {
+            background-color: #242736 !important;
+            padding: 3px 0;
+        }
+        
+        .allMobile ul li a {
+            background-color: #242736 !important;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .allMobile .ul2 a {
+            background-color: #242736 !important;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .container-fluidd {
+            background: #1956E1;
+            background: -webkit-linear-gradient(right, #1956E1, #8B5CA4);
+            background: -moz-linear-gradient(right, #1956E1, #8B5CA4);
+            background: linear-gradient(to left, #1956E1, #8B5CA4);
+            text-align: center;
+            padding: 150px 30px;
+            width: 100%;
+        }
+        
+        a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+        }
+        a:hover {
+            text-decoration: none;
+            color: rgb(228, 228, 228);
+        }
+        
+        .parakeet-h1 {
+            font-size: 64px;
+            font-weight: 800;
+        }
+        
+        .parakeet-row {
+            display: grid;
+            padding-bottom: 40px;
+            padding-top: 40px;
+        }
+        
+        footer {
+            padding: 30px 150px !important;
+            background-color: #242736;
+        }
+
+        footer .row .col {
+            margin-bottom: 50px;
+        }
+                
+        footer .row .col-xxl {
+            margin-bottom: 50px;
+        }
+
+        footer .row .col h1 {
+            font-weight: 700;
+        }
+        
+        footer .row .col-xxl h1 {
+            font-weight: 700;
+        }
+        
+        footer .links {
+            padding-left: 30px;
+            padding-top: 10px;
+        }
+        
+        footer .links a {
+            color: rgb(223, 223, 223);
+            text-decoration: none;
+        }
+        .loader {
+            position: fixed; 
+            display: flex;
+            z-index: 1;
+            background-color: #000000;
+            width: 100%;
+            height: 100%;
+            transition: all 0.4s ease-in-out;
+            opacity: 100;
+            align-items: center;
+            justify-content: center;
+        }
+        .loaderCircle {
+            width: 50px;
+            height: 50px;
+            border: #8B5CA4 4px solid;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: loader 1.0s linear infinite;
+        }
+
+        @keyframes loader {
+            50% {
+                border: #477cf7 4px solid;
+                border-top-color: transparent;
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        form input {
+            padding: 2px 5px;
+            width: 85%;
+            margin: 0;
+            border: none;
+            border-radius: 6px 0px 0px 6px;
+        }
+        form button {
+            background-color: white;
+            border: none;
+            padding: 2px 5px;
+            transform: translateX(-5px);
+            border-radius: 0px 6px 6px 0px;
+            border-left: rgb(207, 207, 207) solid 1px;
+        }
+    </style>
+    <link rel="stylesheet" href="/site/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body onload="load()">
+    <div class="loader" id="loader">
+        <div class="loaderCircle"></div>
+    </div>
+    <div class="everyfing">
+        <div class="navMobile" id="navMobile">
+            <div class="closeNav">
+                <svg xmlns="http://www.w3.org/2000/svg" id="closeNav" width="43" height="43" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                  </svg>
+            </div>
+            <div class="allMobile">
+                <ul class="ul">
+                    <form action="/search" method="GET">
+                        <input type="text" name="s" id="s">
+                        <button>🔍</button>
+                    </form>
+                </ul>
+                <ul class="ul2">
+                    <a href="/login">
+                        <button class="btn btn-success" style="margin-right: 10px;">Login</button>
+                    </a>
+                    <a href="/register">
+                        <button class="btn btn-success">Register</button>
+                    </a>
+    
+                </ul>
+            </div>
+        </div>
+        <div class="all">
+            <header>
+                <div id="logo">
+                    <!-- <span style="font-size: 18px; font-weight: 200; background-color: #242736 !important;"> Developers</span> -->
+                    <span class="logo"><a style="text-decoration: none; color: #fff;" href="/">Parakeet</a>
+                    </span>
+                </div>
+                <nav>
+                    <form action="/search">
+                        <input type="text" name="s" id="s">
+                        <button>🔍</button>
+                    </form>
+                </nav>
+                <div class="mobile">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="tabNavigation" width="32" height="32" fill="currentColor" class="bi bi-justify" viewBox="0 0 16 16" style="cursor: pointer;">
+                        <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                </div>
+                <div class="user">
+                    <a href="/login">
+                        <button class="btn btn-primary" style="margin-right: 10px;">Login</button>
+                    </a>
+                    <a href="/register">
+                        <button class="btn btn-primary">Register</button>
+                    </a>
+                </div>
+            </header>
+        </div>
+        <div class="container-fluid container-fluidd">
+            <div class="parakeet-row">
+                <span class="parakeet-h1">Parakeet</span>
+                <span class="parakeet-desc">Upload videos and have fun</span>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div style="margin: 10px 60px;"><br>
+                <h1>Main Page</h1><br>
+                <div class="row">
+                    <% video.videos.forEach((v) => { %>
+                        <div class="col">
+                            <a href="/video/<%= v.video.videoName %>" style="text-decoration: none; color: black;">
+                                <video width="320" id="videoPlayer" muted paused>
+                                    <source src="/videoUpload/<%= v.video.videoName %>">
+                                </video> <br>
+                            </a>
+                            <span style="font-size: 24px;"><%= v.video.title %></span> <br>
+                            <span style="color: rgb(201, 201, 201); padding-bottom: 5px;"><%= v.video.views %> views</span><br>
+                            <div style="padding-top: 10px;">
+                                <a style="color: rgb(255, 255, 255) !important; text-decoration: none;" href="/user/<%= v.user.username %>">
+                                    <% if (v.user.avatarURL == "https://i.imgur.com/nL97ZLO.png") { %>
+                                        <img src="<%= v.user.avatarURL %>" width="32" style="border-radius: 50%;">
+                                        <% } else { %>
+                                            <img src="/avatarsUpload/<%= v.user.avatarURL %>" width="32" style="border-radius: 50%;">
+                                    <% } %>
+                                </a>
+                                <span>
+                                    <a style="color: rgb(255, 255, 255) !important; text-decoration: none;" href="/user/<%= v.user.username %>"><%= v.user.username %></a>
+                                </span>
+                                <br><br>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div><br><br>
+            </div>
+        </div>
+        <footer class="container-fluid">
+            <div class="row">
+                <div class="col-xxl">
+                    <h1>Parakeet</h1>
+                    <span style="padding-bottom: 10px !important;">Upload videos and have fun</span><br>
+                </div>
+                <div class="col">
+                    <h1>Policy</h1>
+                    <a href="/policy-private">Policy private</a><br>
+                    <a href="/rules">Rules</a><br>
+                    <a href="/thanks">Thanks</a>
+                </div>
+                <div class="col">
+                    <h1>Resources</h1>
+                    <a href="/developers">Developers portal</a><br>
+                    <a href="/api">API</a><br>
+                    <a href="/report">Report</a><br>
+                </div>
+                <div class="col">
+                    <h1>Us</h1>
+                    <a href="/about">About</a><br>
+                    <a href="/authorsandadmins">Authors and admins</a><br>
+                    <a href="/feedback">Send feedback</a><br>
+                    <a href="/contact">Contact</a>
+                </div>
+            </div>
+            <!-- <div class="links">
+                <a href="/">Home</a> <b>|</b>
+                <a href="/about">About</a> <b>|</b>
+                <a href="/docs">Documentation</a> <b>|</b>
+                <a href="/developers">Developers portal</a> <b>|</b>
+                <a href="/policy">Policy Privacy</a> <b>|</b>
+                <a href="/feedback">Send Feedback</a>
+            </div> -->
+            <br>
+            <hr>
+            <center>
+                <span style="font-size: 15px;">Parakeet 2021 Copyright &copy;</span><br>
+            </center>
+        </footer>
+    </div>
+
+    <script>
+        const tabNav = document.getElementById("tabNavigation")
+        const navMobile = document.getElementById("navMobile")
+        const closeNav = document.getElementById("closeNav")
+
+        tabNav.addEventListener("click", () => {
+            navMobile.style.display = "block"
+            navMobile.style.width = "100%"
+        })
+
+        closeNav.addEventListener("click", () => {
+            navMobile.style.width = "0%"
+            navMobile.style.display = "none"
+        })
+    </script>
+    <script>
+        const body = document.querySelector('body')
+        const loader = document.querySelector('#loader')
+
+        window.scrollTo(50, 100)
+
+        function load() {
+            window.scrollTo(50, 100)
+            setTimeout(() => {
+                loader.style.opacity = "0"
+                body.style.overflowY = "auto"
+                window.scrollTo(0, 100)
+                setTimeout(() => {
+                    loader.style.display = "none"
+                }, 1000);
+            }, 1500)
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+</body>
+
+</html>

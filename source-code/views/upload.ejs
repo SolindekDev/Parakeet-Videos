@@ -1,0 +1,15 @@
+<form ref='uploadForm' id='uploadForm' action='/upload' method='post' encType="multipart/form-data">
+    <% if (message) { %>
+        <br>
+        <span><%= message %></span>
+        <br> <br>
+    <% } %>
+    Title <br>
+    <input type="text" name="title" id="title" placeholder="So funny video..."> <br><br>
+    Description <br>
+    <textarea name="description" id="description" placeholder="This is a video description, on parakeet" style="resize: none;" cols="50" rows="10">
+
+    </textarea> <br><br>
+    <input type="file" name="video" /> <br><br> 
+    <input type='submit' value='Upload!' />
+</form> 
